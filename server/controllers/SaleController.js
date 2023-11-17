@@ -66,7 +66,7 @@ const getOneSale = catchAsync(async(req,res,next)=>{
 })
 const multerStorage = multer.diskStorage({
     destination : (req,file,cb)=>{
-        cb(null,'public/imgs/card')
+        cb(null,'public/images/')
     },
     filename: (req,file,cb)=>{
         const name = Date.now()
