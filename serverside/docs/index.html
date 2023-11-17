@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styles as per previous example */
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>API Documentation</h1>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Get All Sales</h2>
+            <p>Endpoint: <code>127.0.0.1:3000/api/v1/sales</code></p>
+            <p>Description: Get all sales with a maximum of 2 buyer cards.</p>
+            <pre>
+{
+    "status": "success",
+    "date": {
+        "length": 19,
+        "sales": [
+            {
+                "_id": "64b4271166eb613d09378a35",
+                "name": "docker ",
+                "price": 120,
+                "date": "Wed Jan 01 2020 00:00:00 GMT+0100 (Central European Standard Time)",
+                "registrationNumber": "2020/01/01",
+                "buyer_firstname": "ahmed",
+                "buyer_lastname": "ali",
+                "buyer_card": [],
+                "__v": 0,
+                "id": "64b4271166eb613d09378a35"
+            },
+            // ... (other sales)
+        ]
+    }
+}
+            </pre>
+        </section>
+
+        <section>
+            <h2>Get One Sale</h2>
+            <p>Endpoint: <code>127.0.0.1:3000/api/v1/sales/{sale_id}</code></p>
+            <p>Description: Get details of a specific sale.</p>
+            <pre>
+{
+    "status": "success",
+    "data": {
+        "tour": {
+            "_id": "64b4271166eb613d09378a35",
+            "name": "docker ",
+            "price": 120,
+            "date": "Wed Jan 01 2020 00:00:00 GMT+0100 (Central European Standard Time)",
+            "registrationNumber": "2020/01/01",
+            "buyer_firstname": "ahmed",
+            "buyer_lastname": "ali",
+            "buyer_card": [],
+            "__v": 0,
+            "id": "64b4271166eb613d09378a35"
+        }
+    }
+}
+            </pre>
+            <p>Error Response (if sale not found):</p>
+            <pre>
+{
+    "status": "fail",
+    "message": "no sale with this id"
+}
+            </pre>
+        </section>
+
+        <section>
+            <h2>Create a Sale</h2>
+            <p>Endpoint: <code>127.0.0.1:3000/api/v1/sales</code></p>
+            <p>Description: Create a new sale.</p>
+            <pre>
+{
+    "status": "success",
+    "data": {
+        "sale": {
+            "name": "docker ",
+            "price": 200,
+            "date": "2020-01-01",
+            "registrationNumber": "2020/01/01",
+            "buyer_firstname": "ahmed",
+            "buyer_lastname": "ali",
+            "buyer_card": [
+                "1689581720080.png"
+            ],
+            "_id": "64b4f898cb5262b9d7088c1a",
+            "__v": 0,
+            "id": "64b4f898cb5262b9d7088c1a"
+        }
+    }
+}
+            </pre>
+        </section>
+
+        <section>
+            <h2>Update a Sale</h2>
+            <p>Endpoint: <code>127.0.0.1:3000/api/v1/sales/{sale_id}</code></p>
+            <p>Description: Update details of a specific sale.</p>
+            <pre>
+{
+    "status": "success",
+    "data": {
+        "updated": {
+            "_id": "64b4f898cb5262b9d7088c1a",
+            "name": "docker11",
+            "price": 200,
+            "date": "2020-01-01",
+            "registrationNumber": "2020/01/01",
+            "buyer_firstname": "ahmed",
+            "buyer_lastname": "ali",
+            "buyer_card": [
+                "1689581934554.jpeg"
+            ],
+            "__v": 0,
+            "id": "64b4f898cb5262b9d7088c1a"
+        }
+    }
+}
+            </pre>
+        </section>
+
+        <section>
+            <h2>Delete a Sale</h2>
+            <p>Endpoint: <code>127.0.0.1:3000/api/v1/sales/{sale_id}</code></p>
+            <p>Description: Delete a specific sale.</p>
+            <p>Status Code: 204 (No Content)</p>
+        </section>
+
+        <section>
+            <h2>Get Sales by Day</h2>
+            <p>Endpoint: <code>127.0.0.1:3000/api/v1/sales/getByDay/{date}</code></p>
+            <p>Description: Get sales for a specific day.</p>
+            <pre>
+{
+    "status": "success",
+    "data": {
+        "length": 4,
+        "total": 720,
+        "sales": [
+            {
+                "_id": "64b4460de9fe8499dccfe3e3",
+                "name": "docker ",
+                "price": 120,
+                "date": "2020-01-01",
+                "registrationNumber": "2020/01/01",
+                "buyer_firstname": "ahmed",
+                "buyer_lastname": "ali",
+                "buyer_card": [
+                    "1689536013015.png"
+                ],
+                "__v": 0,
+                "id": "64b4460de9fe8499dccfe3e3"
+            },
+            // ... (other sales)
+        ]
+    }
+}
+            </pre>
+        </section>
+
+    </main>
+
+</body>
+</html>
